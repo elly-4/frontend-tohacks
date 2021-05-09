@@ -12,7 +12,7 @@ function getData(path, callback) {
   xobj.send(null);
 };
 
-export function loadData(query, mealType, cuisineType, calorieRange, healthLabels, callback) {
+export function loadMealData(query, mealType, cuisineType, calorieRange, healthLabels) {
   let args = [
     mealType,
     cuisineType,
@@ -66,6 +66,6 @@ export function loadData(query, mealType, cuisineType, calorieRange, healthLabel
       });
     }
     
-    callback(recipes);
+    return recipes;
   });
 };

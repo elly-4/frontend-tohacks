@@ -1,5 +1,3 @@
-var api_url = 'http://192.168.1.9:5500/api/get_locations';
-
 function getData(path, callback) {
   var xobj = new XMLHttpRequest();
   xobj.overrideMimeType('application/json');
@@ -12,10 +10,10 @@ function getData(path, callback) {
   xobj.send(null);
 };
 
-function loadData(lon, lat, radius, callback) {
-  api_url += `?lon${lon}&lat=${lat}&radius=${radius}`;
+export function loadMapData(lon, lat, radius) {
+  var api_url = `http://198.84.180.114:5500/api/get_locations?lon=${lon}&lat=${lat}&radius=${radius}`;
 
   getData(api_url, (data) => {
-    
+    return data;
   });
 };
