@@ -11,7 +11,8 @@
 }
 
 .homeImage{
-   width: 400px
+    width: 100%;
+    padding-bottom: 50px;
 }
 
 
@@ -19,11 +20,11 @@
     color:rgb(196, 29, 29);
     display: flex; 
     text-decoration: none;
-    padding-top: 25rem;    
+    padding-top: 5rem;    
     padding-bottom: 6rem;
     text-align: right;
     height: 100%;
     font-size: 1.3cm;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
-
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    justify-content: center;
 }
