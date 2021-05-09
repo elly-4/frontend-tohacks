@@ -1,14 +1,105 @@
 import React from 'react';
 import "../../App.css";
 import './PickRecipes.css';
+import Card from 'react-bootstrap/Card';
+import CardColumns from 'react-bootstrap/CardColumns';
 
-import logo from './logo.png'; // Tell webpack this JS file uses this image
 
-console.log(logo); // /logo.84287d09.png
 
-function Header() {
-  // Import result is the URL of your image
-  return <img src={logo} alt="Logo" />;
+
+function PickRecipes () {
+  return (
+      <div style={{ color: '#33333',backgroundColor: '#333333', height: 40 }}> 
+  
+<CardColumns>
+  <Card>
+    <Card.Img variant="top" src="holder.js/100px160" />
+    <Card.Body>
+      <Card.Title>Card title that wraps to a new line</Card.Title>
+      <Card.Text>
+        This is a longer card with supporting text below as a natural lead-in to
+        additional content. This content is a little bit longer.
+      </Card.Text>
+    </Card.Body>
+  </Card>
+  <Card className="p-3">
+
+  <Card.Img variant="top" src="holder.js/100px160" />
+    <Card.Body>
+      <Card.Title>Card title that wraps to a new line</Card.Title>
+      <Card.Text>
+        This is a longer card with supporting text below as a natural lead-in to
+        additional content. This content is a little bit longer.
+      </Card.Text>
+    </Card.Body>
+  </Card>
+  <Card className="p-3">
+
+  <Card.Img variant="top" src="holder.js/100px160" />
+    <Card.Body>
+      <Card.Title>Card title that wraps to a new line</Card.Title>
+      <Card.Text>
+        This is a longer card with supporting text below as a natural lead-in to
+        additional content. This content is a little bit longer.
+      </Card.Text>
+    </Card.Body>
+  </Card>
+  <Card className="p-3">
+
+  <Card.Img variant="top" src="holder.js/100px160" />
+    <Card.Body>
+      <Card.Title>Card title that wraps to a new line</Card.Title>
+      <Card.Text>
+        This is a longer card with supporting text below as a natural lead-in to
+        additional content. This content is a little bit longer.
+      </Card.Text>
+    </Card.Body>
+  </Card>
+  <Card className="p-3">
+
+
+  <Card.Img variant="top" src="holder.js/100px160" />
+    <Card.Body>
+      <Card.Title>Card title that wraps to a new line</Card.Title>
+      <Card.Text>
+        This is a longer card with supporting text below as a natural lead-in to
+        additional content. This content is a little bit longer.
+      </Card.Text>
+    </Card.Body>
+  </Card>
+
+
+
+
+  <Card>
+    <Card.Img variant="top" src="holder.js/100px160" />
+    <Card.Body>
+      <Card.Title>Card title</Card.Title>
+      <Card.Text>
+        This card has supporting text below as a natural lead-in to additional
+        content.{' '}
+      </Card.Text>
+    </Card.Body>
+    </Card>
+
+
+    
+
+
+  
+</CardColumns>
+
+
+</div>
+
+
+    
+  )
+  
+
 }
 
-export default Header;
+
+
+//return <img src={logo} alt="Logo" />;
+export default PickRecipes;
