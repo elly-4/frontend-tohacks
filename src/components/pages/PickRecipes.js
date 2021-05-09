@@ -4,7 +4,7 @@ import "./PickRecipes.css";
 import Card from "react-bootstrap/Card";
 import CardColumns from "react-bootstrap/CardColumns";
 import firebase from "firebase";
-import { loadData } from "../get_recipes";
+import { loadMealData } from "../get_recipes";
 
 // loadData(query, mealType, cuisineType, calorieRange, healthLabels, callback) {
 
@@ -81,7 +81,13 @@ async function cardGenerator() {
   var cards = [];
 
   console.log("", "lunch", data["cuisine"][0], data["calorie"], data["health"][0]);
-  var r = loadData("", "lunch", data["cuisine"][0], "0-"+data["calorie"], data["health"][0]);
+  var r = loadMealData(
+    "",
+    "lunch",
+    data["cuisine"][0],
+    "0-" + data["calorie"],
+    data["health"][0]
+  );
   for (var i = 0; i < 5; i++) {
     //console.log(r);
     cards.push(
