@@ -86,7 +86,6 @@ async function cardGenerator() {
   for (var i = 0; i < 5; i++) {
     cards.push(
       <Card className="p-3">
-        <Card.Img variant="top" src="holder.js/100px160" />
         <Card.Body>
           <a href={locations[i]["web"]}>
             <Card.Title>{locations[i]["name"]}</Card.Title>
