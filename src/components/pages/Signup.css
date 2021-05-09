@@ -1,3 +1,6 @@
+.mapboxgl-map {
+    margin: 0 auto;
+}
 
 .signUp {
     color:rgb(0, 0, 0);
@@ -19,7 +22,6 @@
     font-size: 13pt;
     text-align: center;
     height: 14h;
-    padding-left: 12vh;
     padding-top: 0.7vh;
     line-height: 2em;
     width: 50em;

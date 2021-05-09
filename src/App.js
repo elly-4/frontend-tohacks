@@ -5,25 +5,12 @@ import Signup from "./components/pages/Signup"
 
 export default function App() {
   return (
-  <>
-   <Router> 
-     <Switch>  
-      
-     <Route path = '/signup' exact component = {Signup} />
-     </Switch>  
-  
-   </Router>
-     
-
-   </>
+    <>
+      <Router> 
+        <Switch>  
+        <Route path = '/signup' exact component = {Signup} />
+        </Switch>  
+      </Router>
+    </>
   );
 }
-
-
-
-
-
-
-
-
-
