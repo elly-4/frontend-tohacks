@@ -6,23 +6,44 @@ import CardColumns from 'react-bootstrap/CardColumns';
 
 function Home () {
     return (
-        <div style={{ color: '#33333',backgroundColor: '#333333', height: 60 }}>
+        <div>
 
     
-    <h1 className = "home">  Company Name  </h1>
+    
     <img src = "/images/home.png" alt = "" className = "homeImage"></img>
 
     <CardColumns>
     <Card>
     <Card.Img variant="top" src="/images/food.8jpeg.png" />
+    <Card.Body>
+      <Card.Title>Card title that wraps to a new line</Card.Title>
+      <Card.Text>
+        This is a longer card with supporting text below as a natural lead-in to
+        additional content. This content is a little bit longer.
+      </Card.Text>
+    </Card.Body>
     </Card>
 
     <Card>
     <Card.Img variant="top" src="/images/123.jpeg" />
+    <Card.Body>
+      <Card.Title>Card title that wraps to a new line</Card.Title>
+      <Card.Text>
+        This is a longer card with supporting text below as a natural lead-in to
+        additional content. This content is a little bit longer.
+      </Card.Text>
+    </Card.Body>
     </Card>
 
     <Card>
     <Card.Img variant="top" src="/images/d1.jpeg" />
+    <Card.Body>
+      <Card.Title>Card title that wraps to a new line</Card.Title>
+      <Card.Text>
+        This is a longer card with supporting text below as a natural lead-in to
+        additional content. This content is a little bit longer.
+      </Card.Text>
+    </Card.Body>
     </Card>
 
         
