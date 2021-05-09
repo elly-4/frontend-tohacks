@@ -1,15 +1,16 @@
 import React from 'react';
 import "../../App.css";
-import './PickRecipes.css';
+import './BrowseMeals.css';
 import Card from 'react-bootstrap/Card';
 import CardColumns from 'react-bootstrap/CardColumns';
 
 
 
 
-function PickRecipes () {
+function browseMeals () {
   return (
       <div> 
+  
 <CardColumns>
   <Card>
     <Card.Img variant="top" src="holder.js/100px160" />
@@ -101,4 +102,4 @@ function PickRecipes () {
 
 
 //return <img src={logo} alt="Logo" />;
-export default PickRecipes;
+export default browseMeals;

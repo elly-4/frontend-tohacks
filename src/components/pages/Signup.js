@@ -4,7 +4,7 @@ import './Signup.css';
 
 function SignUp () {
     return (
-        <div style={{ color: '#33333',backgroundColor: '#333333', height: 140 }}> 
+        <div> 
         
             <form >
                 <h1 className = "signUp"> Sign up </h1>
