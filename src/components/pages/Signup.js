@@ -65,6 +65,7 @@ async function handleSubmit(db, lat, lng) {
     var lastName = document.getElementById("lastName").value;
     var email = document.getElementById("email").value;
     var pass = document.getElementById("pass").value;
+    var range = document.getElementById("range").value;
 
     var creds = await firebase.auth().createUserWithEmailAndPassword(email, pass);
     var id = creds.user.id;
@@ -72,7 +73,8 @@ async function handleSubmit(db, lat, lng) {
         name: name,
         lastName: lastName,
         lat: lat,
-        lng: lng
+        lng: lng,
+        range: range
     });
 }
 
@@ -108,7 +110,12 @@ function SignUp () {
         <div
             style={{ color: "#33333", backgroundColor: "#333333", height: 140 }}
         >
-            <form onSubmit={(e) => {e.preventDefault(); handleSubmit(db, lat, lng);}}>
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    handleSubmit(db, lat, lng);
+                }}
+            >
                 <h1 className="signUp"> Sign up </h1>
                 <label className="firstName"> First Name </label>{" "}
                 <input
@@ -156,6 +163,13 @@ function SignUp () {
                         lng = e["transform"]["_center"]["lng"];
                     }}
                 ></Map>
+                <label className="password"> Max Range</label>{" "}
+                <input
+                    id="range"
+                    type="number"
+                    className="enterValue"
+                    placeholder="Max Range"
+                />{" "}
                 <label className="password"> Cuisine Type</label>{" "}
                 <div style={{ width: "300px", margin: "0 auto" }}>
                     {cuisines.map((element) => {

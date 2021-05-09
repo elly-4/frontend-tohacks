@@ -28,8 +28,8 @@ useEffect(() => {
             <nav className="navbar">
                 <div className="navbar-container">
                     <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-                        Freshify
-               </Link>
+                        <img className="logo" src="/images/logo.svg" alt="Uh oh we made a boo boo"></img>Freshify
+                    </Link>
                     <div className='menu-icon' onClick={handleClick}>
                         <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
                     </div>
