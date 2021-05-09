@@ -81,24 +81,35 @@ async function cardGenerator() {
   var cards = [];
 
   console.log("", "lunch", data["cuisine"][0], data["calorie"], data["health"][0]);
-  var r = loadMealData(
+  var r = await loadMealData(
     "",
     "lunch",
     data["cuisine"][0],
     "0-" + data["calorie"],
     data["health"][0]
   );
+  console.log(r);
   for (var i = 0; i < 5; i++) {
-    //console.log(r);
     cards.push(
       <Card className="p-3">
-        <Card.Img variant="top" src="holder.js/100px160" />
+        <Card.Img
+          variant="top"
+          src={r[i]["thumbnail"]}
+          style={{ width: "100px" }}
+        />
         <Card.Body>
-          <Card.Title>{r[i]}</Card.Title>
+          <Card.Title>{r[i]["name"]}</Card.Title>
           <Card.Text>
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit
-            longer.
+            Calories: {r[i]["calories"]}
+            <br />
+            Diets: {r[i]["diets_label"] && r[i]["diets_label"][0]}
+            <br />
+            Meal type: {r[i]["meal_type"]}
+            <br />
+            Servings: {r[i]["servings"]}
+            <br />
+            Labels: {r[i]["health_labels"] && r[i]["health_labels"][0]}
+            <br />
           </Card.Text>
         </Card.Body>
       </Card>
@@ -124,7 +135,7 @@ function PickRecipes() {
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   }
-  var [cards, setCards] = useState(<p>hello</p>);
+  var [cards, setCards] = useState(<p>Loading....</p>);
   var hasRun = useRef(false);
   //var cards = [];
   console.log(hasRun);
@@ -136,7 +147,7 @@ function PickRecipes() {
         hasRun.current = true;
         await setCards(await cardGenerator());
       }
-      console.log(cards);
+      //console.log(cards);
       // ...
     } else {
       // User is signed out
@@ -144,7 +155,11 @@ function PickRecipes() {
     }
   });
 
-  return <div id="cards">{cards}</div>;
+  return (
+    <div id="cards">
+      <CardColumns>{cards}</CardColumns>
+    </div>
+  );
 }
 
 //return <img src={logo} alt="Logo" />;
