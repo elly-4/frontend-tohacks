@@ -4,6 +4,7 @@ import "./PickRecipes.css";
 import Card from "react-bootstrap/Card";
 import CardColumns from "react-bootstrap/CardColumns";
 import firebase from "firebase";
+import { loadMapData } from '../get_stores';
 
 // loadData(query, mealType, cuisineType, calorieRange, healthLabels, callback) {
 
@@ -78,18 +79,24 @@ async function cardGenerator() {
     await db.collection("users").doc(firebase.auth().currentUser.uid).get()
   ).data();
   var cards = [];
-  console.log("", "lunch", data["cuisine"], data["calorie"], data["health"]);
-  var recipes = [];
+  var locations = await loadMapData(-75, 45, 50000);
+  console.log(locations);
+  console.log(data["lng"], data["lat"], data["range"]);
+
   for (var i = 0; i < 5; i++) {
-    console.log(recipes[i]);
     cards.push(
       <Card className="p-3">
         <Card.Img variant="top" src="holder.js/100px160" />
         <Card.Body>
-          <Card.Title>recipes[i]</Card.Title>
+          <a href={locations[i]["web"]}>
+            <Card.Title>{locations[i]["name"]}</Card.Title>
+          </a>
           <Card.Text>
-            This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
+            Address: {locations[i]["address"]["label"]}
+            <br />
+            Categories: {locations[i]["categories"][0]}
+            <br />
+            Is it open: {locations[i]["isOpen"] ? "Open" : "Closed"}
           </Card.Text>
         </Card.Body>
       </Card>
@@ -114,10 +121,10 @@ function BrowseMeals() {
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   }
-  var [cards, setCards] = useState();
+  var [cards, setCards] = useState(<p>Loading....</p>);
   var hasRun = useRef(false);
   //var cards = [];
-  console.log(hasRun);
+  //console.log(hasRun);
   firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
@@ -132,9 +139,13 @@ function BrowseMeals() {
       // ...
     }
   });
-
-  console.log(cards);
-  return <div>{cards}</div>;
+//mealpog is the real name:)
+  //console.log(cards);
+  return (
+    <div>
+      <CardColumns>{cards}</CardColumns>
+    </div>
+  );
 }
 
 //return <img src={logo} alt="Logo" />;
