@@ -182,6 +182,7 @@ function SignUp() {
             lat = e["transform"]["_center"]["lat"];
             lng = e["transform"]["_center"]["lng"];
           }}
+          center={[-79.3, 43.6]}
         ></Map>
         <label className="password"> Max Range</label>{" "}
         <input
