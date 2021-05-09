@@ -10,7 +10,7 @@ function getData(path, callback) {
   xobj.send(null);
 };
 
-export function loadMealData(query, mealType, cuisineType, calorieRange, healthLabels, callback) {
+export function loadMealData(query, mealType, cuisineType, calorieRange, healthLabels) {
   var api_url = 'http://198.84.180.114:5500/api/get_recipes'; 
   let args = [
     mealType,
@@ -64,6 +64,6 @@ export function loadMealData(query, mealType, cuisineType, calorieRange, healthL
       });
     }
     
-    callback(recipes);
+    return recipes;
   });
 };

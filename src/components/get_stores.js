@@ -10,11 +10,10 @@ function getData(path, callback) {
   xobj.send(null);
 };
 
-export function loadMapData(lon, lat, radius, callback) {
-  var api_url = 'http://198.84.180.114:5500/api/get_locations';
-  api_url += `?lon=${lon}&lat=${lat}&radius=${radius}`;
+export function loadMapData(lon, lat, radius) {
+  var api_url = `http://198.84.180.114:5500/api/get_locations?lon=${lon}&lat=${lat}&radius=${radius}`;
 
   getData(api_url, (data) => {
-    callback(data);
+    return data;
   });
 };
