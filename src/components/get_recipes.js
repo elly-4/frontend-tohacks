@@ -1,5 +1,3 @@
-var api_url = 'http://192.168.1.9:5500/api/get_recipes';
-
 function getData(path, callback) {
   var xobj = new XMLHttpRequest();
   xobj.overrideMimeType('application/json');
@@ -12,7 +10,8 @@ function getData(path, callback) {
   xobj.send(null);
 };
 
-export function loadData(query, mealType, cuisineType, calorieRange, healthLabels, callback) {
+export function loadMealData(query, mealType, cuisineType, calorieRange, healthLabels, callback) {
+  var api_url = 'http://198.84.180.114:5500/api/get_recipes'; 
   let args = [
     mealType,
     cuisineType,

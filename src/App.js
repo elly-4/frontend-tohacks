@@ -5,12 +5,13 @@ import Signup from "./components/pages/Signup"
 import PickRecipes from "./components/pages/PickRecipes"
 import Home from "./components/pages/Home"
 import BrowseMeals from "./components/pages/BrowseMeals"
-import {loadData} from "./components/get_recipes"
+import {loadMealData} from "./components/get_recipes"
+import {loadMapData} from "./components/get_stores"
 
 export default function App() {
-  loadData("chicken", null, null, null, null, (data) => {
+  /*loadMapData(-79.396505, 43.659862, 3000, (data) => {
     console.log(data);
-  });
+  });*/  
 
   return (
   <>
