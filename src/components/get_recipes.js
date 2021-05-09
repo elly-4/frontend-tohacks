@@ -1,4 +1,4 @@
-var api_url = 'http://192.168.1.9:5500/api/get_recipes';
+var api_url = "http://198.84.180.114:5500/api/get_recipes";
 
 function getData(path, callback) {
   var xobj = new XMLHttpRequest();
@@ -30,8 +30,9 @@ export function loadData(query, mealType, cuisineType, calorieRange, healthLabel
     }
   }
 
-  api_url += `?q=${query}&imageSize=THUMBNAIL&mealType=${arg_vals[0]}&cuisineType=${arg_vals[1]}&calories=${arg_vals[2]}&health=${arg_vals[3]}`;
-  getData(api_url, (data) => {
+  var url = api_url + `?q=${query}&image_size=THUMBNAIL&meal_type=${arg_vals[0]}&cuisine_type=${arg_vals[1]}&calories=${arg_vals[2]}&health=${arg_vals[3]}`;
+  console.log(url);
+  getData(url, (data) => {
     let jsonData = JSON.parse(data);
     let recipes = [];
 

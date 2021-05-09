@@ -4,6 +4,7 @@ import "./PickRecipes.css";
 import Card from "react-bootstrap/Card";
 import CardColumns from "react-bootstrap/CardColumns";
 import firebase from "firebase";
+import { loadData } from "../get_recipes";
 
 // loadData(query, mealType, cuisineType, calorieRange, healthLabels, callback) {
 
@@ -78,21 +79,26 @@ async function cardGenerator() {
     await db.collection("users").doc(firebase.auth().currentUser.uid).get()
   ).data();
   var cards = [];
+
+  console.log("", "lunch", data["cuisine"][0], data["calorie"], data["health"][0]);
+  var r = loadData("", "lunch", data["cuisine"][0], "0-"+data["calorie"], data["health"][0]);
   for (var i = 0; i < 5; i++) {
-    console.log("", "lunch", data["cuisine"], data["calorie"], data["health"]);
+    //console.log(r);
     cards.push(
       <Card className="p-3">
         <Card.Img variant="top" src="holder.js/100px160" />
         <Card.Body>
-          <Card.Title>Card title that wraps to a new line</Card.Title>
+          <Card.Title>{r[i]}</Card.Title>
           <Card.Text>
             This is a longer card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit longer.
+            lead-in to additional content. This content is a little bit
+            longer.
           </Card.Text>
         </Card.Body>
       </Card>
     );
   }
+  console.log(cards);
   return cards;
 }
 
@@ -112,7 +118,7 @@ function PickRecipes() {
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
   }
-  var [cards, setCards] = useState();
+  var [cards, setCards] = useState(<p>hello</p>);
   var hasRun = useRef(false);
   //var cards = [];
   console.log(hasRun);
@@ -121,9 +127,10 @@ function PickRecipes() {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       if (hasRun.current === false) {
-        setCards(await cardGenerator());
+        hasRun.current = true;
+        await setCards(await cardGenerator());
       }
-      hasRun.current = true;
+      console.log(cards);
       // ...
     } else {
       // User is signed out
@@ -131,8 +138,7 @@ function PickRecipes() {
     }
   });
 
-  console.log(cards);
-  return <div>{cards}</div>;
+  return <div id="cards">{cards}</div>;
 }
 
 //return <img src={logo} alt="Logo" />;
